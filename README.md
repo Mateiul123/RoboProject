@@ -19,6 +19,8 @@ With the integration of an ECG sensor module (AD8232), crash detection mechanism
 ### 📜 Block Diagram
 
 ![Flowcharts](https://github.com/user-attachments/assets/6d024103-adf2-4b0b-b3ed-f9cdc99bb94f)
+### AD8232 ESP32 Connection
+![Blank diagram](https://github.com/user-attachments/assets/f2a88a64-946d-4a47-884b-bd35f8c5d4d3)
 
 The Monitor combines lightweight, wearable hardware with intuitive software to:
 
@@ -43,7 +45,7 @@ The Monitor combines lightweight, wearable hardware with intuitive software to:
 | Component                   | Quantity | Purpose                                              |
 |-----------------------------|----------|------------------------------------------------------|
 | **RGB LED**                 | 1        | Indicates status|
-| **Arduino Uno**             | 1        | Microcontroller for data processing and system control |
+| **ESP32**             | 1        | Microcontroller for data processing and system control |
 | **ECG Sensor Module (AD8232)** | 1        | Captures real-time heart activity                   |
 | **Accelerometer (MPU6050)** | 1        | Tracks motion to identify activity and falls         |
 | **Display (LCD)**   | 1        | Shows heart rate, activity levels, and alerts       |
@@ -108,6 +110,7 @@ Placeholder for results
 ## 📅 Diary
 
 Integrated project README
+Switched to ESP32 for data handling via Ubidots for future project scaling
 
 ---
 
@@ -123,29 +126,35 @@ Placeholder for Source Code and Misc
 
 ### 🔧 Detailed Hardware Functionality
 
-- **RGB LED**: Uses three digital pins (D3, D5, D6) to control red, green, and blue channels. The LED will indicate the following states:
+RGB LED: Uses three digital pins (GPIO16, GPIO17, GPIO18) to control red, green, and blue channels. The LED will indicate the following states:
   - **Green**: Normal operation.
   - **Yellow**: Warning or abnormal conditions detected.
   - **Red**: Critical alert, such as a fall or dangerously low heart rate.
-- **ECG Sensor (AD8232)**: Connected via analog pin (A0) for heart rate detection.
-- **Accelerometer (MPU6050)**: Connected via I2C (SDA, SCL) for motion analysis.
-- **Display (LCD)**: Uses I2C for real-time data visualization.
-- **Buzzer**: Controlled via digital pin (D3) for alerts.
-- **Button**: Connected via digital pin (D2) for start/stop functionality.
-- **SD Card Module**: Connected via SPI (D10 - CS, D11 - MOSI, D12 - MISO, D13 - SCK) to log real-time data such as heart rate, alerts, and motion activity.
+
+ECG Sensor (AD8232): Connected via analog pin (GPIO36) for heart rate detection.
+
+Accelerometer (MPU6050): Connected via I2C (GPIO21 - SDA, GPIO22 - SCL) for motion analysis.
+
+Display (LCD1602): Uses I2C (GPIO21 - SDA, GPIO22 - SCL) for real-time data visualization.
+
+Buzzer: Controlled via digital pin (GPIO25) for alerts.
+
+Button: Connected via digital pin (GPIO27) for start/stop functionality.
+
+SD Card Module: Connected via SPI (GPIO5 - CS, GPIO23 - MOSI, GPIO19 - MISO, GPIO18 - SCK) to log real-time data such as heart rate, alerts, and motion activity.
 
 
-### 🔌 Pin Configuration
 
 | Component            | Pins Used            | Purpose                                   |
 |----------------------|----------------------|-------------------------------------------|
-| **RGB LED**          | D4 (Red), D5 (Green), D6 (Blue) | Status indication (normal, warning, alert) |
-| **ECG Sensor**       | A0                  | Reads analog heart rate signal           |
-| **Accelerometer**    | SDA (A4), SCL (A5)  | Motion detection via I2C communication   |
-| **LCD1602 Display**  | SDA (A4), SCL (A5)  | Displays real-time metrics via I2C       |
-| **SD Card Module**   | D10 (CS), D11 (MOSI), D12 (MISO), D13 (SCK) | Logs real-time data such as heart rate and motion activity |
-| **Buzzer**           | D3                  | Triggers audio alerts                    |
-| **Button**           | D2                  | Start/stop functionality    
+| **RGB LED**          | GPIO16 (Red), GPIO17 (Green), GPIO18 (Blue) | Full-color status indication (normal, warning, alert) |
+| **ECG Sensor**       | GPIO36 (VP)         | Reads analog heart rate signal           |
+| **Accelerometer**    | GPIO21 (SDA), GPIO22 (SCL) | Motion detection via I2C communication   |
+| **LCD1602 Display**  | GPIO21 (SDA), GPIO22 (SCL) | Displays real-time metrics via I2C       |
+| **SD Card Module**   | GPIO5 (CS), GPIO23 (MOSI), GPIO19 (MISO), GPIO18 (SCK) | Logs real-time data                       |
+| **Buzzer**           | GPIO25              | Triggers audio alerts                    |
+| **Button**           | GPIO27              | Start/stop functionality                 |
+
 
 
 ---
