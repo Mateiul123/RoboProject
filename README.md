@@ -103,7 +103,10 @@ The Monitor’s **key health advantages**:
 
 ## 📊 Results 
 
-Placeholder for results
+![How To Read An EKG (electrocardiograph)](https://github.com/user-attachments/assets/6f80c4a1-2367-4020-9f75-3289014b99e4)
+![Screenshot 2024-12-29 140232](https://github.com/user-attachments/assets/62c4b384-568b-46cd-8c73-1bc18745fbaa)
+![Screenshot 2024-12-29 150716](https://github.com/user-attachments/assets/1583cc40-8a70-42f0-99f2-b207540960bf)
+[![Watch the video](https://img.youtube.com/vi/LcgixkPOPkA/maxresdefault.jpg)](https://youtube.com/shorts/LcgixkPOPkA)
 
 ---
 
@@ -111,6 +114,8 @@ Placeholder for results
 
 Integrated project README
 Switched to ESP32 for data handling via Ubidots for future project scaling
+Created a Python script to read the ECG module data via the ESP32 and made a real time plot using matplot
+TD: Integrate Accelerometer, create functions for falling, low pulse etc, attach display, use ubidots for data storage, create a 1 min test and save it with time and date
 
 ---
 
@@ -164,3 +169,4 @@ SD Card Module: Connected via SPI (GPIO5 - CS, GPIO23 - MOSI, GPIO19 - MISO, GPI
 1. [Arduino IDE Documentation](https://www.arduino.cc/en/Guide)
 2. [AD8232 ECG Sensor Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ad8232.pdf)
 3. [MPU6050 Accelerometer Module Datasheet](https://www.alldatasheet.com/view.jsp?Searchword=Mpu-6050%20datasheet&gad_source=1&gclid=CjwKCAiApY-7BhBjEiwAQMrrEeIHpV8Z8e906Y5OvtslpqZj430skJS8nmNGwVekbN71cOcSCk0sThoCq5sQAvD_BwE)
+4. [ECG Explained Diagram](https://www.pinterest.com/pin/how-to-read-an-ekg-electrocardiograph--67624431877752520/)
